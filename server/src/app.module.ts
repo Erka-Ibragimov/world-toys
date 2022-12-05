@@ -6,6 +6,7 @@ import { ToysService } from './toys/toys.service';
 import { ToysModule } from './toys/toys.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { RegistrationModel } from './toys/model/registration.model';
+import { MailerModule } from './mailer/mailer.module';
 
 @Module({
   imports: [
@@ -20,6 +21,7 @@ import { RegistrationModel } from './toys/model/registration.model';
       synchronize: true,
     }),
     ToysModule,
+    MailerModule,
   ],
   controllers: [AppController, ToysController],
   providers: [AppService, ToysService],

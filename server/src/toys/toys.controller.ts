@@ -1,4 +1,5 @@
 import { Body, Controller, Get, Post } from '@nestjs/common';
+import { LoginValidationDto } from './dto/loginValidation.dto';
 import { RegistrationValidationDto } from './dto/registrationValidation.dto';
 import { ToysService } from './toys.service';
 
@@ -12,7 +13,11 @@ export class ToysController {
   }
 
   @Post('/registration')
-  registration(@Body() bodyReq:RegistrationValidationDto) {
+  registration(@Body() bodyReq: RegistrationValidationDto) {
     return this.toysService.registration(bodyReq);
+  }
+  @Post('/login')
+  login(@Body() bodyReq: LoginValidationDto) {
+    return this.toysService.login(bodyReq);
   }
 }
