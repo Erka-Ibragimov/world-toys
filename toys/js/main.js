@@ -29,9 +29,9 @@ window.addEventListener("scroll", function () {
   }
 });
 
-const resultItems = document.querySelector('.result')
-const itemFromDocument = document.querySelector('.result .items')
-const totalResultCost = document.querySelector('.totalResult h2')
+const resultItems = document.querySelector(".result");
+const itemFromDocument = document.querySelector(".result .items");
+const totalResultCost = document.querySelector(".totalResult h2");
 
 suffedItem.forEach((item, key) => {
   item.addEventListener("click", function () {
@@ -42,11 +42,11 @@ suffedItem.forEach((item, key) => {
     const suffedCost = b.getAttribute("data-cost");
     const suffedImg = c.getAttribute("data-img");
     if (!item.classList.contains("active-suffed-toys__item")) {
-      const elem = document.createElement('div')
+      const elem = document.createElement("div");
       elem.classList.add("itemBasket");
-      const p = document.createElement('p')
-      const h3 = document.createElement('h5')
-      const img = document.createElement('img')
+      const p = document.createElement("p");
+      const h3 = document.createElement("h5");
+      const img = document.createElement("img");
       img.src = suffedImg;
       elem.appendChild(p);
       elem.appendChild(h3);
@@ -62,23 +62,20 @@ suffedItem.forEach((item, key) => {
       p.innerHTML = suffedCost;
       totalResultCost.innerHTML = collectSumm;
       collectSum.innerHTML = collectSumm;
-      if(collectSumm > 0){
+      if (collectSumm > 0) {
         resultItems.style.opacity = 1;
       }
       c.style.transform = `scale(1.5)`;
-      setTimeout(
-        () => {
-          c.style.transform = `scale(1)`;
-        },
-        300
-      );
+      setTimeout(() => {
+        c.style.transform = `scale(1)`;
+      }, 300);
     } else {
-      const remobeItem = document.querySelectorAll('.itemBasket')
-      remobeItem.forEach(element => {
+      const remobeItem = document.querySelectorAll(".itemBasket");
+      remobeItem.forEach((element) => {
         const dataFromDom = element.innerText;
-        const arr = dataFromDom.split('\n\n')
-        if(arr[1] == suffedName){
-          itemFromDocument.removeChild(element) 
+        const arr = dataFromDom.split("\n\n");
+        if (arr[1] == suffedName) {
+          itemFromDocument.removeChild(element);
         }
       });
       item.classList.remove("active-suffed-toys__item");
@@ -87,9 +84,9 @@ suffedItem.forEach((item, key) => {
         payBtn.style.display = "none";
       }
       collectSumm -= +suffedCost;
-      if(collectSumm == 0){
+      if (collectSumm == 0) {
         resultItems.style.opacity = 0;
-      } 
+      }
       collectSum.innerHTML = collectSumm;
       totalResultCost.innerHTML = collectSumm;
     }
@@ -105,11 +102,11 @@ woodenItem.forEach((item) => {
     const woodenCost = b.getAttribute("data-cost");
     const woodenImg = c.getAttribute("data-img");
     if (!item.classList.contains("active-wooden-toys__item")) {
-      const elem = document.createElement('div')
+      const elem = document.createElement("div");
       elem.classList.add("itemBasket");
-      const p = document.createElement('p')
-      const h3 = document.createElement('h5')
-      const img = document.createElement('img')
+      const p = document.createElement("p");
+      const h3 = document.createElement("h5");
+      const img = document.createElement("img");
       img.src = woodenImg;
       elem.appendChild(p);
       elem.appendChild(h3);
@@ -123,25 +120,22 @@ woodenItem.forEach((item) => {
       collectSumm += +woodenCost;
       h3.innerHTML = woodenName;
       p.innerHTML = woodenCost;
-      totalResultCost.innerHTML = collectSumm
+      totalResultCost.innerHTML = collectSumm;
       collectSum.innerHTML = collectSumm;
-      if(collectSumm > 0){
+      if (collectSumm > 0) {
         resultItems.style.opacity = 1;
       }
       c.style.transform = `scale(1.5)`;
-      setTimeout(
-        () => {
-          c.style.transform = `scale(1)`;
-        },
-        300
-      );
+      setTimeout(() => {
+        c.style.transform = `scale(1)`;
+      }, 300);
     } else {
-      const remobeItem = document.querySelectorAll('.itemBasket')
-      remobeItem.forEach(element => {
+      const remobeItem = document.querySelectorAll(".itemBasket");
+      remobeItem.forEach((element) => {
         const dataFromDom = element.innerText;
-        const arr = dataFromDom.split('\n\n')
-        if(arr[1] == woodenName){
-          itemFromDocument.removeChild(element) 
+        const arr = dataFromDom.split("\n\n");
+        if (arr[1] == woodenName) {
+          itemFromDocument.removeChild(element);
         }
       });
       item.classList.remove("active-wooden-toys__item");
@@ -150,9 +144,9 @@ woodenItem.forEach((item) => {
         payBtn.style.display = "none";
       }
       collectSumm -= +woodenCost;
-      if(collectSumm == 0){
+      if (collectSumm == 0) {
         resultItems.style.opacity = 0;
-      } 
+      }
       collectSum.innerHTML = collectSumm;
       totalResultCost.innerHTML = collectSumm;
     }
@@ -321,5 +315,16 @@ btnRegistration2.addEventListener("click", function () {
   xAvtoreg.addEventListener("click", function () {
     wrapRegistration.style.display = "none";
     avtoreg.style.top = -200 + "%";
+  });
+});
+
+const btnFilter = document.querySelectorAll(".instagram-img_btn");
+btnFilter.forEach((element) => {
+  element.addEventListener("click", () => {
+    const thisAttr = element.getAttribute("data-filter");
+    for (let i = 0; i < btnFilter.length; i++) {
+      btnFilter[i].classList.remove("instagram-img_btn_active");
+    }
+    element.classList.add("instagram-img_btn_active");
   });
 });

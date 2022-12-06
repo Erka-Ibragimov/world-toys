@@ -7,7 +7,7 @@ import { ToysController } from './toys.controller';
 import { ToysService } from './toys.service';
 
 @Module({
-  providers: [ToysService,CodeToysService],
+  providers: [ToysService, CodeToysService],
   controllers: [ToysController],
   exports: [TypeOrmModule],
   imports: [
@@ -18,7 +18,7 @@ import { ToysService } from './toys.service';
         secure: false,
         auth: {
           user: 'erkaibragimov@yandex.ru',
-          pass: 'egvmfjyltgcrsiwp',
+          pass: 'kmzdbfohpyqtktwn',
         },
       },
     }),

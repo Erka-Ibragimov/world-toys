@@ -725,8 +725,8 @@ header {
 }
 
 .instagram {
-    padding-top: 120px;
-    padding-bottom: 120px;
+    padding-top: 20px;
+    padding-bottom: 50px;
     text-align: center;
 }
 
@@ -741,7 +741,7 @@ header {
     line-height: 40px;
     color: #111;
     font-family: 'Varela Round';
-    margin-bottom: 85px;
+    margin-bottom: 35px;
 }
 
 .instagram-img {
@@ -892,22 +892,26 @@ footer {
     border: none;
     border-radius: 10px;
 }
+
 .itemBasket,
-.totalResult{
+.totalResult {
     display: flex;
     width: 380px;
     justify-content: space-between;
     align-items: center;
 }
-.itemBasket img{
+
+.itemBasket img {
     width: 90px;
     height: 90px;
 }
-.totalResult{
+
+.totalResult {
     margin-top: 20px;
     border-top: 2px solid black;
 }
-.result button{
+
+.result button {
     border: none;
     border-radius: 15px;
     background-color: #A5C926;
@@ -915,13 +919,15 @@ footer {
     color: #F8F8F8;
     font-size: 20px;
 }
-.result .items{
+
+.result .items {
     overflow-y: scroll;
     width: 410px;
     height: 200px;
     padding: 10px;
 }
-.result{
+
+.result {
     position: fixed;
     top: 140px;
     right: 10px;
@@ -931,4 +937,40 @@ footer {
     z-index: 999;
     opacity: 0;
     transition: 1.5s;
+}
+
+.buttons {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 600px;
+    margin: 0 auto;
+}
+
+.instagram-img_btn {
+    padding: 5px;
+    border-radius: 10px;
+    border: none;
+    background-color: greenyellow;
+    font-size: 20px;
+    color: #fff;
+    width: 100px;
+    margin-bottom: 20px;
+    transition: 0.5s;
+}
+
+.instagram-img_btn:hover {
+    transition: 0.5s;
+    background-color: black !important;
+}
+
+.instagram-img {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.instagram-img_btn_active {
+    transition: 0.5s;
+    background-color: black !important;
 }
