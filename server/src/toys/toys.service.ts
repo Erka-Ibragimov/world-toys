@@ -24,7 +24,7 @@ export class ToysService {
       const condidate = this.registrationModel.find({
         where: { email: bodyReq.email },
       });
-      if (!condidate) {
+      if (condidate) {
         throw new Error(`Пользователь с таким ${bodyReq.email} уже существует`);
       }
       const hashPassword = await bcrypt.hash(bodyReq.password, 3);
@@ -50,6 +50,7 @@ export class ToysService {
       row.repeatPassword = hashRepeatPassword;
       row.phone = bodyReq.phone;
       row.email = bodyReq.email;
+      row.activatedNumber = randomNumber;
       dataToDatabase.push(row);
       await this.registrationModel.save(dataToDatabase);
       return dataToDatabase;

@@ -892,3 +892,43 @@ footer {
     border: none;
     border-radius: 10px;
 }
+.itemBasket,
+.totalResult{
+    display: flex;
+    width: 380px;
+    justify-content: space-between;
+    align-items: center;
+}
+.itemBasket img{
+    width: 90px;
+    height: 90px;
+}
+.totalResult{
+    margin-top: 20px;
+    border-top: 2px solid black;
+}
+.result button{
+    border: none;
+    border-radius: 15px;
+    background-color: #A5C926;
+    padding: 10px;
+    color: #F8F8F8;
+    font-size: 20px;
+}
+.result .items{
+    overflow-y: scroll;
+    width: 410px;
+    height: 200px;
+    padding: 10px;
+}
+.result{
+    position: fixed;
+    top: 140px;
+    right: 10px;
+    background-color: #FFC12C;
+    padding: 10px;
+    border-radius: 20px;
+    z-index: 999;
+    opacity: 0;
+    transition: 1.5s;
+}

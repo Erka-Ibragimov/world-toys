@@ -17,4 +17,6 @@ export class RegistrationModel extends BaseEntity {
   email: string;
   @Column({default:false})
   isActicated: boolean;
+  @Column({nullable:true})
+  activatedNumber: number
 }

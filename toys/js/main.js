@@ -29,6 +29,10 @@ window.addEventListener("scroll", function () {
   }
 });
 
+const resultItems = document.querySelector('.result')
+const itemFromDocument = document.querySelector('.result .items')
+const totalResultCost = document.querySelector('.totalResult h2')
+
 suffedItem.forEach((item, key) => {
   item.addEventListener("click", function () {
     const a = item.querySelector(".suffed-toys__item h4");
@@ -36,31 +40,58 @@ suffedItem.forEach((item, key) => {
     const c = item.querySelector(".suffed-toys__item img");
     const suffedName = a.getAttribute("data-name");
     const suffedCost = b.getAttribute("data-cost");
-
+    const suffedImg = c.getAttribute("data-img");
     if (!item.classList.contains("active-suffed-toys__item")) {
+      const elem = document.createElement('div')
+      elem.classList.add("itemBasket");
+      const p = document.createElement('p')
+      const h3 = document.createElement('h5')
+      const img = document.createElement('img')
+      img.src = suffedImg;
+      elem.appendChild(p);
+      elem.appendChild(h3);
+      elem.appendChild(img);
+      itemFromDocument.appendChild(elem);
       item.classList.add("active-suffed-toys__item");
       collectSpan.innerHTML = collectNumber++ + 1;
       if (collectNumber > 0) {
         payBtn.style.display = "block";
       }
       collectSumm += +suffedCost;
+      h3.innerHTML = suffedName;
+      p.innerHTML = suffedCost;
+      totalResultCost.innerHTML = collectSumm;
       collectSum.innerHTML = collectSumm;
+      if(collectSumm > 0){
+        resultItems.style.opacity = 1;
+      }
       c.style.transform = `scale(1.5)`;
       setTimeout(
         () => {
           c.style.transform = `scale(1)`;
         },
-
         300
       );
     } else {
+      const remobeItem = document.querySelectorAll('.itemBasket')
+      remobeItem.forEach(element => {
+        const dataFromDom = element.innerText;
+        const arr = dataFromDom.split('\n\n')
+        if(arr[1] == suffedName){
+          itemFromDocument.removeChild(element) 
+        }
+      });
       item.classList.remove("active-suffed-toys__item");
       collectSpan.innerHTML = collectNumber-- - 1;
       if (collectNumber == 0) {
         payBtn.style.display = "none";
       }
       collectSumm -= +suffedCost;
+      if(collectSumm == 0){
+        resultItems.style.opacity = 0;
+      } 
       collectSum.innerHTML = collectSumm;
+      totalResultCost.innerHTML = collectSumm;
     }
   });
 });
@@ -72,32 +103,58 @@ woodenItem.forEach((item) => {
     const c = item.querySelector(".wooden-toys__item img");
     const woodenName = a.getAttribute("data-name");
     const woodenCost = b.getAttribute("data-cost");
-
+    const woodenImg = c.getAttribute("data-img");
     if (!item.classList.contains("active-wooden-toys__item")) {
+      const elem = document.createElement('div')
+      elem.classList.add("itemBasket");
+      const p = document.createElement('p')
+      const h3 = document.createElement('h5')
+      const img = document.createElement('img')
+      img.src = woodenImg;
+      elem.appendChild(p);
+      elem.appendChild(h3);
+      elem.appendChild(img);
+      itemFromDocument.appendChild(elem);
       item.classList.add("active-wooden-toys__item");
       collectSpan.innerHTML = collectNumber++ + 1;
       if (collectNumber > 0) {
         payBtn.style.display = "block";
       }
       collectSumm += +woodenCost;
+      h3.innerHTML = woodenName;
+      p.innerHTML = woodenCost;
+      totalResultCost.innerHTML = collectSumm
       collectSum.innerHTML = collectSumm;
+      if(collectSumm > 0){
+        resultItems.style.opacity = 1;
+      }
       c.style.transform = `scale(1.5)`;
-
       setTimeout(
         () => {
           c.style.transform = `scale(1)`;
         },
-
         300
       );
     } else {
+      const remobeItem = document.querySelectorAll('.itemBasket')
+      remobeItem.forEach(element => {
+        const dataFromDom = element.innerText;
+        const arr = dataFromDom.split('\n\n')
+        if(arr[1] == woodenName){
+          itemFromDocument.removeChild(element) 
+        }
+      });
       item.classList.remove("active-wooden-toys__item");
       collectSpan.innerHTML = collectNumber-- - 1;
       if (collectNumber == 0) {
         payBtn.style.display = "none";
       }
       collectSumm -= +woodenCost;
+      if(collectSumm == 0){
+        resultItems.style.opacity = 0;
+      } 
       collectSum.innerHTML = collectSumm;
+      totalResultCost.innerHTML = collectSumm;
     }
   });
 });

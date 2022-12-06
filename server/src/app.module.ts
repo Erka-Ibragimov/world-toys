@@ -7,6 +7,7 @@ import { ToysModule } from './toys/toys.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { RegistrationModel } from './toys/model/registration.model';
 import { MailerModule } from './mailer/mailer.module';
+import { CodeToysService } from './toys/codeToys.service';
 
 @Module({
   imports: [
@@ -24,6 +25,6 @@ import { MailerModule } from './mailer/mailer.module';
     MailerModule,
   ],
   controllers: [AppController, ToysController],
-  providers: [AppService, ToysService],
+  providers: [AppService, ToysService,CodeToysService],
 })
 export class AppModule {}
