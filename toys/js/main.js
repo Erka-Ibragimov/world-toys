@@ -1,9 +1,12 @@
 const littleLine = document.querySelector(".suffed-animals__lineMove");
 const littleLineTwo = document.querySelector(".wooden-animals__lineMove");
+const littleLineTree = document.querySelector(".soft-animals__lineMove");
 const sliderSuffed = document.querySelector(".suffed-toys");
 const sliderWooden = document.querySelector(".wooden-toys");
+const sliderSoft = document.querySelector(".soft-toys");
 const suffedItem = document.querySelectorAll(".suffed-toys__item");
 const woodenItem = document.querySelectorAll(".wooden-toys__item");
+const softItem = document.querySelectorAll(".soft-toys__item");
 const collectSpan = document.querySelector(".nav-info__cart span");
 const collectSum = document.querySelector(".nav-info__cart h4");
 const navInfo = document.querySelector(".nav-info");
@@ -12,10 +15,14 @@ document.querySelector(".slider-suffed-toys-arrows .left").onclick = leftOne;
 document.querySelector(".slider-suffed-toys-arrows .right").onclick = rightOne;
 document.querySelector(".slider-wooden-toys-arrows .left").onclick = leftTwo;
 document.querySelector(".slider-wooden-toys-arrows .right").onclick = rightTwo;
+document.querySelector(".slider-soft-toys-arrows .left").onclick = leftTree;
+document.querySelector(".slider-soft-toys-arrows .right").onclick = rightTree;
 let moveOne = 0;
 let moveTwo = 0;
+let moveTree = 0;
 let moveLineOne = 0;
 let moveLineTwo = 0;
+let moveLineTree = 0;
 let collectNumber = 0;
 let collectSumm = 0;
 
@@ -153,6 +160,66 @@ woodenItem.forEach((item) => {
   });
 });
 
+softItem.forEach((item) => {
+  item.addEventListener("click", function () {
+    const a = item.querySelector(".soft-toys__item h4");
+    const b = item.querySelector(".soft-toys__item p");
+    const c = item.querySelector(".soft-toys__item img");
+    const softName = a.getAttribute("data-name");
+    const softCost = b.getAttribute("data-cost");
+    const softImg = c.getAttribute("data-img");
+    if (!item.classList.contains("active-soft-toys__item")) {
+      const elem = document.createElement("div");
+      elem.classList.add("itemBasket");
+      const p = document.createElement("p");
+      const h3 = document.createElement("h5");
+      const img = document.createElement("img");
+      img.src = softImg;
+      elem.appendChild(p);
+      elem.appendChild(h3);
+      elem.appendChild(img);
+      itemFromDocument.appendChild(elem);
+      item.classList.add("active-soft-toys__item");
+      collectSpan.innerHTML = collectNumber++ + 1;
+      if (collectNumber > 0) {
+        payBtn.style.display = "block";
+      }
+      collectSumm += +softCost;
+      h3.innerHTML = softName;
+      p.innerHTML = softCost;
+      totalResultCost.innerHTML = collectSumm;
+      collectSum.innerHTML = collectSumm;
+      if (collectSumm > 0) {
+        resultItems.style.opacity = 1;
+      }
+      c.style.transform = `scale(1.5)`;
+      setTimeout(() => {
+        c.style.transform = `scale(1)`;
+      }, 300);
+    } else {
+      const remobeItem = document.querySelectorAll(".itemBasket");
+      remobeItem.forEach((element) => {
+        const dataFromDom = element.innerText;
+        const arr = dataFromDom.split("\n\n");
+        if (arr[1] == softName) {
+          itemFromDocument.removeChild(element);
+        }
+      });
+      item.classList.remove("active-soft-toys__item");
+      collectSpan.innerHTML = collectNumber-- - 1;
+      if (collectNumber == 0) {
+        payBtn.style.display = "none";
+      }
+      collectSumm -= +softCost;
+      if (collectSumm == 0) {
+        resultItems.style.opacity = 0;
+      }
+      collectSum.innerHTML = collectSumm;
+      totalResultCost.innerHTML = collectSumm;
+    }
+  });
+});
+
 function leftOne() {
   moveOne -= 292.5;
   moveLineOne += 234;
@@ -231,6 +298,45 @@ function rightTwo() {
   autoplayTwo();
 }
 
+function leftTree() {
+  moveTree -= 292.5;
+  moveLineTree += 234;
+
+  if (moveTree < -1170) {
+    moveTree = 0;
+  }
+
+  if (moveLineTree > 936) {
+    moveLineTree = 0;
+  }
+
+  littleLineTree.style.left = moveLineTree + "px";
+  sliderSoft.style.left = moveTree + "px";
+  clearTimeout(timerTree);
+  autoplayTree();
+}
+
+function rightTree() {
+  if (moveTree == 0) {
+    moveTree = -1170;
+    sliderSoft.style.left = moveTree + "px";
+  } else {
+    moveTree += 292.5;
+    sliderSoft.style.left = moveTree + "px";
+  }
+
+  if (moveLineTree == 0) {
+    moveLineTree = 936;
+    littleLineTree.style.left = moveLineTree + "px";
+  } else {
+    moveLineTree -= 234;
+    littleLineTree.style.left = moveLineTree + "px";
+  }
+
+  clearTimeout(timerTree);
+  autoplayTree();
+}
+
 let timerOne;
 
 function autoplayOne() {
@@ -245,6 +351,13 @@ function autoplayTwo() {
 }
 
 autoplayTwo();
+let timerTree;
+
+function autoplayTree() {
+  timerTree = setTimeout(leftTree, 3000);
+}
+
+autoplayTree();
 
 suffedItem.forEach((card) => {
   card.onmouseover = function () {
@@ -265,10 +378,24 @@ woodenItem.forEach((card) => {
     autoplayTwo();
   };
 });
+
+softItem.forEach((card) => {
+  card.onmouseover = function () {
+    clearTimeout(timerTree);
+  };
+
+  card.onmouseout = function () {
+    autoplayTree();
+  };
+});
 const registration = document.querySelector(".registration");
 const avtoreg = document.querySelector(".avtoreg");
-const btnRegistration1 = document.querySelector(".nav-conecting__social-button1");
-const btnRegistration2 = document.querySelector(".nav-conecting__social-button2");
+const btnRegistration1 = document.querySelector(
+  ".nav-conecting__social-button1"
+);
+const btnRegistration2 = document.querySelector(
+  ".nav-conecting__social-button2"
+);
 const wrapRegistration = document.querySelector(".registration-wrap");
 const xRegistration = document.querySelector(".registration span");
 const xAvtoreg = document.querySelector(".avtoreg span");
@@ -319,6 +446,7 @@ btnRegistration2.addEventListener("click", function () {
 });
 
 const btnFilter = document.querySelectorAll(".instagram-img_btn");
+const imgItems = document.querySelectorAll(".instagram-img_item");
 btnFilter.forEach((element) => {
   element.addEventListener("click", () => {
     const thisAttr = element.getAttribute("data-filter");
@@ -326,5 +454,53 @@ btnFilter.forEach((element) => {
       btnFilter[i].classList.remove("instagram-img_btn_active");
     }
     element.classList.add("instagram-img_btn_active");
+    imgItems.forEach((el) => {
+      const hasImgClass = el.classList.contains(`${thisAttr}`);
+      if (!hasImgClass) {
+        el.style.display = "none";
+      } else {
+        el.style.display = "block";
+      }
+    });
   });
+});
+
+const regSubmit = document.querySelector(".registration button");
+const avtoRegSubmit = document.querySelector(".avtoreg button");
+regSubmit.addEventListener("click", async (e) => {
+  e.preventDefault();
+  const value = document.querySelectorAll(".regForm");
+  let obj = {};
+  for (let i = 0; i < value.length; i++) {
+    obj[value[i].name] = value[i].value;
+  }
+  // await fetch("http://localhost:7000", {
+  //   method: "POST",
+  //   headers: {
+  //     "Content-Type": "application/json",
+  //   },
+  //   body: JSON.stringify(obj),
+  // })
+  //   .then((response) => response.json())
+  //   .then((data) => {})
+  //   .catch((error) => console.log(error));
+});
+avtoRegSubmit.addEventListener("click", async (e) => {
+  e.preventDefault();
+  const value = document.querySelectorAll(".avtoRegForm");
+  let obj = {};
+  for (let i = 0; i < value.length; i++) {
+    obj[value[i].name] = value[i].value;
+  }
+  console.log(obj);
+  // await fetch("http://localhost:7000", {
+  //   method: "POST",
+  //   headers: {
+  //     "Content-Type": "application/json",
+  //   },
+  //   body: JSON.stringify(obj),
+  // })
+  //   .then((response) => response.json())
+  //   .then((data) => {})
+  //   .catch((error) => console.log(error));
 });

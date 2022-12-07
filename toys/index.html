@@ -17,21 +17,20 @@
         <div class="registration">
             <form action="">
                 <span>X</span>
-                <input type="text" placeholder="Имя">
-                <input type="text" placeholder="Логин">
-                <input type="password" placeholder="Пароль">
-                <input type="text" placeholder="Номер телефона">
-                <input type="email" placeholder="Почта">
+                <input name="name" class="regForm" type="text" placeholder="Имя">
+                <input name="login" class="regForm" type="text" placeholder="Логин">
+                <input name="password" class="regForm" type="password" placeholder="Пароль">
+                <input name="repeatPassword" class="regForm" type="password" placeholder="Повторите пароль">
+                <input name="phone" class="regForm" type="text" placeholder="Номер телефона">
+                <input name="emeil" class="regForm" type="email" placeholder="Почта">
                 <button type="submit">Регистрация</button>
             </form>
         </div>
         <div class="avtoreg">
             <form action="">
                 <span>X</span>
-                <input type="text" placeholder="Логин">
-                <input type="password" placeholder="Пароль">
-                <input type="text" placeholder="Номер телефона">
-                <input type="email" placeholder="Почта">
+                <input class="avtoRegForm" name="email" type="email" placeholder="Почта">
+                <input class="avtoRegForm" name="password" type="password" placeholder="Пароль">
                 <button type="submit">Авторизация</button>
             </form>
         </div>
@@ -94,16 +93,16 @@
             <div class="container">
                 <div class="kind-toys__wrap">
                     <div class="kind-toys__suffed">
-                        <img src="images/suffed.png" alt="">
+                        <img src="images/divan.png" alt="">
                         <div class="kind-toys__suffed-text">
-                            <p>Stuffed Animals</p>
+                            <p>Сushioned Furniture</p>
                             <a href="">Shop Now</a>
                         </div>
                     </div>
                     <div class="kind-toys__wooden">
-                        <img src="images/wooden.png" alt="">
+                        <img src="images/table.png" alt="">
                         <div class="kind-toys__wooden-text">
-                            <p>Wooden Toys</p>
+                            <p>Solid Furniture</p>
                             <a href="">Shop Now</a>
                         </div>
                     </div>
@@ -114,7 +113,10 @@
                 </div>
                 <div class="totalResult">
                     <p>Итоговая сумма</p>
-                    <h2></h2>
+                    <div class="groupTotalCount">
+                        <h2></h2>
+                        <span>$</span>
+                    </div>
                 </div>
                 <button>Перейти к оплате</button>
             </div>
@@ -126,34 +128,52 @@
                 <div class="buttons">
                     <button data-filter="instagram-img_item" class="instagram-img_btn instagram-img_btn_active">Все</button>
                     <button data-filter="tablee" class="instagram-img_btn">Столы</button>
-                    <button data-filter="chair" class="instagram-img_btn">Стулья</button>
+                    <button data-filter="chair" class="instagram-img_btn">Диваны</button>
                     <button data-filter="cupboard" class="instagram-img_btn">Шкафы</button>
                 </div>
                 <div class="instagram-img">
                     <div class="instagram-img_item tablee">
-                        <img src="images/IMAGE1-inst.png" alt="">
+                        <img src="images/table1.jpeg" alt="">
                     </div>
                     <div class="instagram-img_item chair">
-                        <img src="images/IMAGE2-inst.png" alt="">
+                        <img src="images/divan1.jpeg" alt="">
                     </div>
                     <div class="instagram-img_item cupboard">
-                        <img src="images/IMAGE3-inst.png" alt="">
+                        <img src="images/shkaf1.jpeg" alt="">
                     </div>
                     <div class="instagram-img_item tablee">
-                        <img src="images/IMAGE4-inst.png" alt="">
+                        <img src="images/table2.jpg" alt="">
                     </div>
                     <div class="instagram-img_item chair">
-                        <img src="images/IMAGE5-inst.png" alt="">
+                        <img src="images/divan2.jpeg" alt="">
                     </div>
                     <div class="instagram-img_item cupboard">
-                        <img src="images/IMAGE6-inst.png" alt="">
+                        <img src="images/shkaf2.jpg" alt="">
+                    </div>
+                    <div class="instagram-img_item tablee">
+                        <img src="images/table3.jpeg" alt="">
+                    </div>
+                    <div class="instagram-img_item chair">
+                        <img src="images/divan3.jpeg" alt="">
+                    </div>
+                    <div class="instagram-img_item cupboard">
+                        <img src="images/shkaf3.jpeg" alt="">
+                    </div>
+                    <div class="instagram-img_item tablee">
+                        <img src="images/table4.jpg" alt="">
+                    </div>
+                    <div class="instagram-img_item chair">
+                        <img src="images/divan4.jpg" alt="">
+                    </div>
+                    <div class="instagram-img_item cupboard">
+                        <img src="images/shkaf4.jpeg" alt="">
                     </div>
                 </div>
             </div>
         </section>
         <section class="suffed-animals">
             <div class="container">
-                <h2 class="suffed-animals__title">Stuffed Animals</h2>
+                <h2 class="suffed-animals__title">Элегантные стулья</h2>
                 <div class="suffed-animals__line">
                     <div class="suffed-animals__lineMove"></div>
                 </div>
@@ -161,44 +181,44 @@
             <div class="slider-suffed-toys">
                 <div class="suffed-toys">
                     <div class="suffed-toys__item">
-                        <img data-img="images/suffed-1.png" src="images/suffed-1.png" alt="">
-                        <h4 data-name="Teddy Bear">Teddy Bear</h4>
+                        <img data-img="images/table-slide-1.png" src="images/table-slide-1.png" alt="">
+                        <h4 data-name="Журнальный столик">Журнальный столик</h4>
                         <p data-cost="30.00">$ 30.00 USD</p>
                     </div>
                     <div class="suffed-toys__item">
-                        <img data-img="images/suffed-2.png" src="images/suffed-2.png" alt="">
-                        <h4 data-name="Mega Plush Toy">Mega Plush Toy</h4>
+                        <img data-img="images/table-slide-2.png" src="images/table-slide-2.png" alt="">
+                        <h4 data-name="Акцентный стол">Акцентный стол</h4>
                         <p data-cost="38.00">$ 38.00 USD</p>
                     </div>
                     <div class="suffed-toys__item">
-                        <img data-img="images/suffed-3.png" src="images/suffed-3.png" alt="">
-                        <h4 data-name="Cute Dog">Cute Dog</h4>
+                        <img data-img="images/table-slide-3.png" src="images/table-slide-3.png" alt="">
+                        <h4 data-name="Консольный стол">Консольный стол</h4>
                         <p data-cost="24.00">$ 24.00 USD</p>
                     </div>
                     <div class="suffed-toys__item">
-                        <img data-img="images/suffed-4.png" src="images/suffed-4.png" alt="">
-                        <h4 data-name="Little Friend">Little Friend</h4>
+                        <img data-img="images/table-slide-4.png" src="images/table-slide-4.png" alt="">
+                        <h4 data-name="Боковой столик">Боковой столик</h4>
                         <p data-cost="27.00">$ 27.00 USD</p>
                     </div>
                     <div class="suffed-toys__item">
-                        <img data-img="images/suffed-1.png" src="images/suffed-1.png" alt="">
-                        <h4 data-name="Little Friend">Little Friend</h4>
-                        <p data-cost="27.00">$ 27.00 USD</p>
+                        <img data-img="images/table-slide-5.png" src="images/table-slide-5.png" alt="">
+                        <h4 data-name="С-стол">С-стол</h4>
+                        <p data-cost="41.00">$ 41.00 USD</p>
                     </div>
                     <div class="suffed-toys__item">
-                        <img data-img="images/suffed-2.png" src="images/suffed-2.png" alt="">
-                        <h4 data-name="Little Friend">Little Friend</h4>
-                        <p data-cost="27.00">$ 27.00 USD</p>
+                        <img data-img="images/table-slide-6.png" src="images/table-slide-6.png" alt="">
+                        <h4 data-name="Питьевой стол">Питьевой стол</h4>
+                        <p data-cost="55.00">$ 55.00 USD</p>
                     </div>
                     <div class="suffed-toys__item">
-                        <img data-img="images/suffed-3.png" src="images/suffed-3.png" alt="">
-                        <h4 data-name="Little Friend">Little Friend</h4>
-                        <p data-cost="27.00">$ 27.00 USD</p>
+                        <img data-img="images/table-slide-7.png" src="images/table-slide-7.png" alt="">
+                        <h4 data-name="Барабанный стол">Барабанный стол</h4>
+                        <p data-cost="76.00">$ 76.00 USD</p>
                     </div>
                     <div class="suffed-toys__item">
-                        <img data-img="images/suffed-4.png" src="images/suffed-4.png" alt="">
-                        <h4 data-name="Little Friend">Little Friend</h4>
-                        <p data-cost="27.00">$ 27.00 USD</p>
+                        <img data-img="images/table-slide-8.png" src="images/table-slide-8.png" alt="">
+                        <h4 data-name="Османский стол">Османский стол</h4>
+                        <p data-cost="39.00">$ 39.00 USD</p>
                     </div>
                 </div>
             </div>
@@ -207,7 +227,7 @@
                 <button class="right"><i class="fa fa-arrow-right" aria-hidden="true"></i></button>
             </div>
             <div class="container">
-                <h2 class="wooden-animals__title">Wooden Animals</h2>
+                <h2 class="wooden-animals__title">Мягкие Диваны</h2>
                 <div class="wooden-animals__line">
                     <div class="wooden-animals__lineMove"></div>
                 </div>
@@ -215,48 +235,102 @@
             <div class="slider-wooden-toys">
                 <div class="wooden-toys">
                     <div class="wooden-toys__item">
-                        <img data-img="images/wooden-1.png" src="images/wooden-1.png" alt="">
-                        <h4 data-name="Teddy Bear">Teddy Bear</h4>
-                        <p data-cost="30.00">$ 30.00 USD</p>
+                        <img data-img="images/divan-slide-1.png" src="images/divan-slide-1.png" alt="">
+                        <h4 data-name="Диван HAZEL">Диван HAZEL</h4>
+                        <p data-cost="105.00">$ 105.00 USD</p>
                     </div>
                     <div class="wooden-toys__item">
-                        <img data-img="images/wooden-2.png" src="images/wooden-2.png" alt="">
-                        <h4 data-name="Mega Plush Toy">Mega Plush Toy</h4>
-                        <p data-cost="38.00">$ 38.00 USD</p>
+                        <img data-img="images/divan-slide-2.png" src="images/divan-slide-2.png" alt="">
+                        <h4 data-name="Диван СОФА">Диван СОФА</h4>
+                        <p data-cost="147.00">$ 147.00 USD</p>
                     </div>
                     <div class="wooden-toys__item">
-                        <img data-img="images/wooden-3.png" src="images/wooden-3.png" alt="">
-                        <h4 data-name="Cute Dog">Cute Dog</h4>
-                        <p data-cost="24.00">$ 24.00 USD</p>
+                        <img data-img="images/divan-slide-3.png" src="images/divan-slide-3.png" alt="">
+                        <h4 data-name="Диван SOFABED">Диван SOFABED</h4>
+                        <p data-cost="199.00">$ 199.00 USD</p>
                     </div>
                     <div class="wooden-toys__item">
-                        <img data-img="images/wooden-4.png" src="images/wooden-4.png" alt="">
-                        <h4 data-name="Little Friend">Little Friend</h4>
-                        <p data-cost="30.00">$ 27.00 USD</p>
+                        <img data-img="images/divan-slide-4.png" src="images/divan-slide-4.png" alt="">
+                        <h4 data-name="Диван ARIELLA">Диван ARIELLA</h4>
+                        <p data-cost="210.00">$ 210.00 USD</p>
                     </div>
                     <div class="wooden-toys__item">
-                        <img data-img="images/wooden-1.png" src="images/wooden-1.png" alt="">
-                        <h4 data-name="Little Friend">Little Friend</h4>
-                        <p data-cost="27.00">$ 27.00 USD</p>
+                        <img data-img="images/divan-slide-5.png" src="images/divan-slide-5.png" alt="">
+                        <h4 data-name="Диван ROYAL">Диван ROYAL</h4>
+                        <p data-cost="133.00">$ 133.00 USD</p>
                     </div>
                     <div class="wooden-toys__item">
-                        <img data-img="images/wooden-2.png" src="images/wooden-2.png" alt="">
-                        <h4 data-name="Little Friend">Little Friend</h4>
-                        <p data-cost="27.00">$ 27.00 USD</p>
+                        <img data-img="images/divan-slide-6.png" src="images/divan-slide-6.png" alt="">
+                        <h4 data-name="Диван KAZANOVA">Диван KAZANOVA</h4>
+                        <p data-cost="305.00">$ 305.00 USD</p>
                     </div>
                     <div class="wooden-toys__item">
-                        <img data-img="images/wooden-3.png" src="images/wooden-3.png" alt="">
-                        <h4 data-name="Little Friend">Little Friend</h4>
-                        <p data-cost="27.00">$ 27.00 USD</p>
+                        <img data-img="images/divan-slide-7.png" src="images/divan-slide-7.png" alt="">
+                        <h4 data-name="Диван LA SAVEUR">Диван LA SAVEUR</h4>
+                        <p data-cost="289.00">$ 289.00 USD</p>
                     </div>
                     <div class="wooden-toys__item">
-                        <img data-img="images/wooden-4.png" src="images/wooden-4.png" alt="">
-                        <h4 data-name="Little Friend">Little Friend</h4>
-                        <p data-cost="27.00">$ 27.00 USD</p>
+                        <img data-img="images/divan-slide-8.png" src="images/divan-slide-8.png" alt="">
+                        <h4 data-name="Диван DAFNA">Диван DAFNA</h4>
+                        <p data-cost="181.00">$ 181.00 USD</p>
                     </div>
                 </div>
             </div>
             <div class="slider-wooden-toys-arrows">
+                <button class="left"><i class="fa fa-arrow-left" aria-hidden="true"></i></button>
+                <button class="right"><i class="fa fa-arrow-right" aria-hidden="true"></i></button>
+            </div>
+            <div class="container">
+                <h2 class="soft-animals__title">Стильные Шкафы</h2>
+                <div class="soft-animals__line">
+                    <div class="soft-animals__lineMove"></div>
+                </div>
+            </div>
+            <div class="slider-soft-toys">
+                <div class="soft-toys">
+                    <div class="soft-toys__item">
+                        <img data-img="images/shkaf-slide-1.png" src="images/shkaf-slide-1.png" alt="">
+                        <h4 data-name="Шкаф Alivar Denver">Шкаф Alivar Denver</h4>
+                        <p data-cost="98.00">$ 98.00 USD</p>
+                    </div>
+                    <div class="soft-toys__item">
+                        <img data-img="images/shkaf-slide-2.png" src="images/shkaf-slide-2.png" alt="">
+                        <h4 data-name="Шкаф буфеты">Шкаф буфеты</h4>
+                        <p data-cost="78.00">$ 78.00 USD</p>
+                    </div>
+                    <div class="soft-toys__item">
+                        <img data-img="images/shkaf-slide-3.png" src="images/shkaf-slide-3.png" alt="">
+                        <h4 data-name="Шкаф креденца">Шкаф креденца</h4>
+                        <p data-cost="89.00">$ 89.00 USD</p>
+                    </div>
+                    <div class="soft-toys__item">
+                        <img data-img="images/shkaf-slide-4.png" src="images/shkaf-slide-4.png" alt="">
+                        <h4 data-name="Шкаф горка Stilema">Шкаф горка Stilema</h4>
+                        <p data-cost="69.00">$ 69.00 USD</p>
+                    </div>
+                    <div class="soft-toys__item">
+                        <img data-img="images/shkaf-slide-5.png" src="images/shkaf-slide-5.png" alt="">
+                        <h4 data-name="Шкаф Полог">Шкаф Полог</h4>
+                        <p data-cost="91.00">$ 91.00 USD</p>
+                    </div>
+                    <div class="soft-toys__item">
+                        <img data-img="images/shkaf-slide-6.png" src="images/shkaf-slide-6.png" alt="">
+                        <h4 data-name="Шкаф Ризнер">Шкаф Ризнер</h4>
+                        <p data-cost="84.00">$ 84.00 USD</p>
+                    </div>
+                    <div class="soft-toys__item">
+                        <img data-img="images/shkaf-slide-7.png" src="images/shkaf-slide-7.png" alt="">
+                        <h4 data-name="Шкаф Секретер">Шкаф Секретер</h4>
+                        <p data-cost="97.00">$ 97.00 USD</p>
+                    </div>
+                    <div class="soft-toys__item">
+                        <img data-img="images/shkaf-slide-8.png" src="images/shkaf-slide-8.png" alt="">
+                        <h4 data-name="Шкаф Семинер">Шкаф Семинер</h4>
+                        <p data-cost="73.00">$ 73.00 USD</p>
+                    </div>
+                </div>
+            </div>
+            <div class="slider-soft-toys-arrows">
                 <button class="left"><i class="fa fa-arrow-left" aria-hidden="true"></i></button>
                 <button class="right"><i class="fa fa-arrow-right" aria-hidden="true"></i></button>
             </div>
@@ -269,8 +343,8 @@
                     <p class="full-screen__text">There is no magic formula to write perfect ad copy. It is based on a number of factors, including ad placement, demographic, even the consumer’s mood.</p>
                 </div>
                 <video autoplay muted loop preload="auto" class="full-screen__video">
-                    <source type="video/webm" src="videos/video_2022-06-09_10-27-59.webm">
-                    <source type="video/mp4" src="videos/video_2022-06-09_10-27-59.mp4">
+                    <source type="video/webm" src="https://romo-mebel.uz//wp-content//uploads//2022//09//videoROMO2.mp4">
+                    <source type="video/mp4" src="https://romo-mebel.uz//wp-content//uploads//2022//09//videoROMO2.mp4">
                 </video>
             </div>
         </section>
@@ -295,12 +369,15 @@
         </section>
         <section class="sending">
             <form action="" class="form-subscribe">
-                <button type="submit"><i class="fa fa-telegram" aria-hidden="true"></i></button>
-                <p>Subscribe to our newsletter & get<span>10% discount!</span></p>
+                <a href="https://t.me/Abylaikhan_amanjolov"><i class="fa fa-telegram" aria-hidden="true"></i></a>
+                <p>Перейди ко мне что бы получить<span>10% скидку!</span></p>
             </form>
             <form action="" class="form-submit">
+                <p>Отправь сообщение ко мне на почту!</p>
+               <div class="groupSendEmail">
                 <input type="text">
                 <button type="submit">Send</button>
+               </div>
             </form>
         </section>
         <footer>

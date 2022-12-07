@@ -279,9 +279,9 @@ body {
 }
 
 header {
-    background-image: url("../images/IMAGE.png");
+    background-image: url("../images/mebel-na-anglijskom.jpg");
     background-repeat: no-repeat;
-    background-position: center;
+    /* background-position: center; */
     background-size: cover;
     padding-top: 166px;
     padding-bottom: 166px;
@@ -397,18 +397,23 @@ header {
 
 .kind-toys__suffed img {
     position: absolute;
-    left: 0;
-    top: -60px;
+    left: -60px;
+    top: -85px;
+    width: 265px;
+    height: 265px;
 }
 
 .kind-toys__wooden img {
     position: absolute;
-    right: 0;
-    top: -60px;
+    right: -33px;
+    top: -30px;
+    width: 280px;
+    height: 185px;
 }
 
 .suffed-animals__title,
-.wooden-animals__title {
+.wooden-animals__title,
+.soft-animals__title {
     font-size: 28px;
     line-height: 36px;
     color: #111;
@@ -416,7 +421,8 @@ header {
 }
 
 .suffed-animals__line,
-.wooden-animals__line {
+.wooden-animals__line,
+.soft-animals__line {
     width: 100%;
     height: 2px;
     position: relative;
@@ -425,7 +431,8 @@ header {
 }
 
 .suffed-animals__lineMove,
-.wooden-animals__lineMove {
+.wooden-animals__lineMove,
+.soft-animals__lineMove {
     height: 2px;
     width: 234px;
     background-color: #A5C926;
@@ -435,7 +442,8 @@ header {
 }
 
 .suffed-toys,
-.wooden-toys {
+.wooden-toys,
+.soft-toys {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -446,7 +454,8 @@ header {
 }
 
 .suffed-toys__item,
-.wooden-toys__item {
+.wooden-toys__item,
+.soft-toys__item {
     width: 270px;
     padding-top: 33px;
     padding-bottom: 32px;
@@ -458,19 +467,24 @@ header {
 }
 
 .suffed-toys__item:hover,
-.wooden-toys__item:hover {
+.wooden-toys__item:hover,
+.soft-toys__item:hover {
     box-shadow: 0 0 8px rgba(0, 0, 255, 0.5);
 }
 
 .suffed-toys__item img,
-.wooden-toys__item img {
+.wooden-toys__item img,
+.soft-toys__item img {
     margin-bottom: 25px;
     transform: scale(1);
     transition: 0.5s;
+    width: 220px;
+    height: 200px;
 }
 
 .suffed-toys__item h4,
-.wooden-toys__item h4 {
+.wooden-toys__item h4,
+.soft-toys__item h4 {
     font-size: 14px;
     line-height: 20px;
     color: #111;
@@ -478,7 +492,8 @@ header {
 }
 
 .suffed-toys__item p,
-.wooden-toys__item p {
+.wooden-toys__item p,
+.soft-toys__item p {
     color: #fff;
     font-size: 12px;
     line-height: 20px;
@@ -491,19 +506,20 @@ header {
 }
 
 .suffed-animals,
-.wooden-animals {
+.wooden-animals,
+.soft-animals {
     padding-bottom: 100px;
 }
 
 .video {
     width: 100%;
-    height: 464px;
+    height: 600px;
     position: relative;
 }
 
 .full-screen {
     position: relative;
-    height: 464px;
+    height: 700px;
     display: flex;
     flex-direction: column;
 }
@@ -552,7 +568,8 @@ header {
 }
 
 .slider-suffed-toys,
-.slider-wooden-toys {
+.slider-wooden-toys,
+.slider-soft-toys {
     position: relative;
     width: 1170px;
     margin: 0 auto;
@@ -562,7 +579,8 @@ header {
 }
 
 .active-suffed-toys__item,
-.active-wooden-toys__item {
+.active-wooden-toys__item,
+.active-soft-toys__item {
     box-shadow: 0 0 8px rgba(0, 0, 255, 0.5);
     background-color: rgba(0, 0, 0, 0.5);
     border-radius: 5px;
@@ -581,7 +599,7 @@ header {
 
 .free {
     padding-bottom: 120px;
-    padding-top: 80px;
+    padding-top: 200px;
     background-color: #F8F8F8;
 }
 
@@ -670,12 +688,13 @@ header {
     align-items: center;
 }
 
-.form-subscribe button {
+.form-subscribe a {
     /* width: 63px; */
     /* height: 63px; */
     padding: 18px 15px;
     border: none;
     background-color: #A5C926;
+    display: inline-block;
 }
 
 .form-subscribe i {
@@ -703,8 +722,14 @@ header {
 .form-submit {
     width: 520px;
     display: flex;
+    flex-direction: column;
     justify-content: space-between;
     align-items: center;
+}
+
+.form-submit p{
+    font-weight: 700;
+    font-size: 22px;
 }
 
 .form-submit input {
@@ -713,6 +738,7 @@ header {
     background: #F8F8F8;
     border: 2px solid #E5E5E5;
     border-radius: 24px;
+    padding-left: 20px;
 }
 
 .form-submit button {
@@ -852,7 +878,8 @@ footer {
 }
 
 .slider-suffed-toys-arrows,
-.slider-wooden-toys-arrows {
+.slider-wooden-toys-arrows,
+.slider-soft-toys-arrows {
     width: 500px;
     display: flex;
     justify-content: space-between;
@@ -861,7 +888,8 @@ footer {
 }
 
 .slider-suffed-toys-arrows button,
-.slider-wooden-toys-arrows button {
+.slider-wooden-toys-arrows button,
+.slider-soft-toys-arrows button {
     font-size: 35px;
     width: 130px;
     background-color: #A5C926;
@@ -871,17 +899,20 @@ footer {
 }
 
 .slider-suffed-toys-arrows button:focus,
-.slider-wooden-toys-arrows button:focus {
+.slider-wooden-toys-arrows button:focus,
+.slider-soft-toys-arrows button:focus {
     outline: none;
 }
 
 .slider-suffed-toys-arrows button:hover,
-.slider-wooden-toys-arrows button:hover {
+.slider-wooden-toys-arrows button:hover,
+.slider-soft-toys-arrows button:hover {
     background-color: #111;
 }
 
 .slider-suffed-toys-arrows i,
-.slider-wooden-toys-arrows i {
+.slider-wooden-toys-arrows i,
+.slider-soft-toys-arrows i {
     color: #fff;
 }
 
@@ -966,11 +997,25 @@ footer {
 
 .instagram-img {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
+    flex-wrap: wrap;
 }
 
 .instagram-img_btn_active {
     transition: 0.5s;
     background-color: black !important;
+}
+.instagram-img_item{
+    margin-right: 5px;
+    margin-left: 5px;
+}
+.groupTotalCount{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.groupTotalCount span{
+    font-size: 20px;
+    margin-left: 5px;
 }
