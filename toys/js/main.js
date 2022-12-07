@@ -390,12 +390,8 @@ softItem.forEach((card) => {
 });
 const registration = document.querySelector(".registration");
 const avtoreg = document.querySelector(".avtoreg");
-const btnRegistration1 = document.querySelector(
-  ".nav-conecting__social-button1"
-);
-const btnRegistration2 = document.querySelector(
-  ".nav-conecting__social-button2"
-);
+const btnRegistration1 = document.querySelector(".nav-conecting__social-button1");
+const btnRegistration2 = document.querySelector(".nav-conecting__social-button2");
 const wrapRegistration = document.querySelector(".registration-wrap");
 const xRegistration = document.querySelector(".registration span");
 const xAvtoreg = document.querySelector(".avtoreg span");
@@ -468,6 +464,11 @@ btnFilter.forEach((element) => {
 const regSubmit = document.querySelector(".registration button");
 const avtoRegSubmit = document.querySelector(".avtoreg button");
 const sendMyEmail = document.querySelector(".groupSendEmail button");
+const nameAfterReg = document.querySelector(".nameAfterReg");
+const loginAfterReg = document.querySelector(".loginAfterReg");
+const exit = document.querySelector(".nav-conecting__social-button3");
+const wrapReg = document.querySelector(".nav-conecting__social-button1");
+const wrapAvtoReg = document.querySelector(".nav-conecting__social-button2");
 regSubmit.addEventListener("click", async (e) => {
   e.preventDefault();
   const value = document.querySelectorAll(".regForm");
@@ -475,16 +476,24 @@ regSubmit.addEventListener("click", async (e) => {
   for (let i = 0; i < value.length; i++) {
     obj[value[i].name] = value[i].value;
   }
-  // await fetch("http://localhost:7000", {
-  //   method: "POST",
-  //   headers: {
-  //     "Content-Type": "application/json",
-  //   },
-  //   body: JSON.stringify(obj),
-  // })
-  //   .then((response) => response.json())
-  //   .then((data) => {})
-  //   .catch((error) => console.log(error));
+  await fetch("http://localhost:7000/toys/registration", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(obj),
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      // history.pushState(data, "", "code.html");
+      history.pushState(data, "", "index.html");
+      if (data.status != 403) {
+        setTimeout(() => {
+          window.location.href = "code.html";
+        }, 6000);
+      }
+    })
+    .catch((error) => console.log(error));
 });
 avtoRegSubmit.addEventListener("click", async (e) => {
   e.preventDefault();
@@ -493,31 +502,40 @@ avtoRegSubmit.addEventListener("click", async (e) => {
   for (let i = 0; i < value.length; i++) {
     obj[value[i].name] = value[i].value;
   }
-  // await fetch("http://localhost:7000", {
-  //   method: "POST",
-  //   headers: {
-  //     "Content-Type": "application/json",
-  //   },
-  //   body: JSON.stringify(obj),
-  // })
-  //   .then((response) => response.json())
-  //   .then((data) => {})
-  //   .catch((error) => console.log(error));
+  await fetch("http://localhost:7000/toys/login", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(obj),
+  })
+    .then((response) => response.json())
+    .then((data) => {})
+    .catch((error) => console.log(error));
 });
 sendMyEmail.addEventListener("click", async (e) => {
   e.preventDefault();
   const value = document.querySelector(".textMyEmail");
   let obj = {
-    [value.name]:value.value
+    [value.name]: value.value,
   };
-  // await fetch("http://localhost:7000", {
-  //   method: "POST",
-  //   headers: {
-  //     "Content-Type": "application/json",
-  //   },
-  //   body: JSON.stringify(obj),
-  // })
-  //   .then((response) => response.json())
-  //   .then((data) => {})
-  //   .catch((error) => console.log(error));
+  await fetch("http://localhost:7000/toys/myEmail", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(obj),
+  })
+    .then((response) => response.json())
+    .then((data) => {})
+    .catch((error) => console.log(error));
 });
+let dataFromReg = window.history.state;
+nameAfterReg.style.display = "block";
+nameAfterReg.innerHTML = "Добро пожаловать " + dataFromReg[0].name;
+loginAfterReg.innerHTML = "Аккаунт " + dataFromReg[0].login;
+exit.style.display = "block";
+wrapReg.style.display = "none";
+wrapAvtoReg.style.display = "none";
+dataFromReg = [];
+console.log(dataFromReg);

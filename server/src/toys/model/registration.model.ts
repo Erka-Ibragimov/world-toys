@@ -12,11 +12,11 @@ export class RegistrationModel extends BaseEntity {
   @Column()
   repeatPassword: string;
   @Column()
-  phone: number;
+  phone: string;
   @Column()
   email: string;
-  @Column({default:false})
+  @Column({ default: false })
   isActicated: boolean;
-  @Column({nullable:true})
-  activatedNumber: number
+  @Column({ nullable: true })
+  activatedNumber: string;
 }

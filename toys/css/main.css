@@ -727,7 +727,7 @@ header {
     align-items: center;
 }
 
-.form-submit p{
+.form-submit p {
     font-weight: 700;
     font-size: 22px;
 }
@@ -1006,32 +1006,40 @@ footer {
     transition: 0.5s;
     background-color: black !important;
 }
-.instagram-img_item{
+
+.instagram-img_item {
     margin-right: 5px;
     margin-left: 5px;
 }
-.groupTotalCount{
+
+.groupTotalCount {
     display: flex;
     justify-content: center;
     align-items: center;
 }
-.groupTotalCount span{
+
+.groupTotalCount span {
     font-size: 20px;
     margin-left: 5px;
 }
-.nav-conecting__social-button1{
+
+.nav-conecting__social-button1 {
     display: block;
 }
-.nav-conecting__social-button2{
+
+.nav-conecting__social-button2 {
     display: block;
 }
-.nav-conecting__social-button3{
+
+.nav-conecting__social-button3 {
     display: none;
 }
-.nameAfterReg{
+
+.nameAfterReg {
     display: none;
 }
-.socialGroup{
+
+.socialGroup {
     display: flex;
     justify-content: space-between;
     align-items: center;

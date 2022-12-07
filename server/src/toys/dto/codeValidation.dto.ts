@@ -1,6 +1,6 @@
-import { IsInt } from "class-validator";
+import { IsString } from 'class-validator';
 
-export class CodeValidationDto{
-    @IsInt({message:'Пишите только цифры'})
-    readonly code: number;
+export class CodeValidationDto {
+  @IsString({ message: 'Пишите только буквы' })
+  readonly code: string;
 }

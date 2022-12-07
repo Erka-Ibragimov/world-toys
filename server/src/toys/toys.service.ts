@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { HttpException, HttpStatus, Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { RegistrationValidationDto } from './dto/registrationValidation.dto';
@@ -26,11 +26,14 @@ export class ToysService {
       });
       console.log(condidate);
       if (!condidate) {
-        throw new Error(`Пользователь с таким ${bodyReq.email} уже существует`);
+        throw new HttpException(
+          `Пользователь с таким ${bodyReq.email} уже существует`,
+          HttpStatus.FORBIDDEN,
+        );
       }
       const hashPassword = await bcrypt.hash(bodyReq.password, 3);
       const hashRepeatPassword = await bcrypt.hash(bodyReq.repeatPassword, 3);
-      const randomNumber = Math.floor(1000 + Math.random() * 900);
+      const randomNumber = String(Math.floor(1000 + Math.random() * 900));
       await this.mailService.sendMail({
         from: `erkaibragimov@yandex.ru`,
         to: bodyReq.email,
@@ -62,19 +65,26 @@ export class ToysService {
   }
 
   async login(bodyReq: LoginValidationDto) {
-    const dataFromDatabase = await this.registrationModel.find({
-      where: { email: bodyReq.email },
-    });
-    if (!dataFromDatabase) {
-      throw new Error(`Пользователь с таким ${bodyReq.email} не существует`);
+    try {
+      const dataFromDatabase = await this.registrationModel.find({
+        where: { email: bodyReq.email },
+      });
+      if (!dataFromDatabase) {
+        throw new HttpException(
+          `Пользователь с таким ${bodyReq.email} не существует`,
+          HttpStatus.FORBIDDEN,
+        );
+      }
+      const isPassEquals = await bcrypt.compare(
+        bodyReq.password,
+        dataFromDatabase[0].password,
+      );
+      if (!isPassEquals) {
+        throw new HttpException(`Не правильный пароль!`, HttpStatus.FORBIDDEN);
+      }
+      return dataFromDatabase;
+    } catch (e) {
+      return e;
     }
-    const isPassEquals = await bcrypt.compare(
-      bodyReq.password,
-      dataFromDatabase[0].password,
-    );
-    if (!isPassEquals) {
-      throw new Error('Не правильный пароль!');
-    }
-    return dataFromDatabase;
   }
 }

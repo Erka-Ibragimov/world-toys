@@ -19,7 +19,7 @@ import { ToysService } from './toys.service';
         secure: false,
         auth: {
           user: 'erkaibragimov@yandex.ru',
-          pass: 'kmzdbfohpyqtktwn',
+          pass: 'stoymdholafokfdl',
         },
       },
     }),
