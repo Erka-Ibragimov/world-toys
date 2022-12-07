@@ -467,6 +467,7 @@ btnFilter.forEach((element) => {
 
 const regSubmit = document.querySelector(".registration button");
 const avtoRegSubmit = document.querySelector(".avtoreg button");
+const sendMyEmail = document.querySelector(".groupSendEmail button");
 regSubmit.addEventListener("click", async (e) => {
   e.preventDefault();
   const value = document.querySelectorAll(".regForm");
@@ -492,7 +493,23 @@ avtoRegSubmit.addEventListener("click", async (e) => {
   for (let i = 0; i < value.length; i++) {
     obj[value[i].name] = value[i].value;
   }
-  console.log(obj);
+  // await fetch("http://localhost:7000", {
+  //   method: "POST",
+  //   headers: {
+  //     "Content-Type": "application/json",
+  //   },
+  //   body: JSON.stringify(obj),
+  // })
+  //   .then((response) => response.json())
+  //   .then((data) => {})
+  //   .catch((error) => console.log(error));
+});
+sendMyEmail.addEventListener("click", async (e) => {
+  e.preventDefault();
+  const value = document.querySelector(".textMyEmail");
+  let obj = {
+    [value.name]:value.value
+  };
   // await fetch("http://localhost:7000", {
   //   method: "POST",
   //   headers: {

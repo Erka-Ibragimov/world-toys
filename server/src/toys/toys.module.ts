@@ -3,11 +3,12 @@ import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { CodeToysService } from './codeToys.service';
 import { RegistrationModel } from './model/registration.model';
+import { SendMyEmailToysService } from './sendMyEmailToys.service';
 import { ToysController } from './toys.controller';
 import { ToysService } from './toys.service';
 
 @Module({
-  providers: [ToysService, CodeToysService],
+  providers: [ToysService, CodeToysService, SendMyEmailToysService],
   controllers: [ToysController],
   exports: [TypeOrmModule],
   imports: [

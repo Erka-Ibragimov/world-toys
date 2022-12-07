@@ -136,7 +136,7 @@ body {
 }
 
 .nav-conecting__social {
-    width: 500px;
+    width: 540px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -1018,4 +1018,21 @@ footer {
 .groupTotalCount span{
     font-size: 20px;
     margin-left: 5px;
+}
+.nav-conecting__social-button1{
+    display: block;
+}
+.nav-conecting__social-button2{
+    display: block;
+}
+.nav-conecting__social-button3{
+    display: none;
+}
+.nameAfterReg{
+    display: none;
+}
+.socialGroup{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
