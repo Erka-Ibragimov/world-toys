@@ -17,10 +17,9 @@ sendMyEmail.addEventListener("click", async (e) => {
     .then((data) => {
       h1.innerHTML = data.message;
       if (data.message != "Не правильный код") {
-        window.history.back();
-        // setTimeout(() => {
-        //   window.location.href = "index.html";
-        // }, 10000);
+        setTimeout(() => {
+          window.history.back();
+        }, 3000);
       }
     })
     .catch((error) => console.log(error));

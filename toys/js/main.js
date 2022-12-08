@@ -463,12 +463,14 @@ btnFilter.forEach((element) => {
 
 const regSubmit = document.querySelector(".registration button");
 const avtoRegSubmit = document.querySelector(".avtoreg button");
-const sendMyEmail = document.querySelector(".groupSendEmail button");
+const sendMyEmail = document.querySelector(".form-submit button");
 const nameAfterReg = document.querySelector(".nameAfterReg");
 const loginAfterReg = document.querySelector(".loginAfterReg");
 const exit = document.querySelector(".nav-conecting__social-button3");
 const wrapReg = document.querySelector(".nav-conecting__social-button1");
 const wrapAvtoReg = document.querySelector(".nav-conecting__social-button2");
+const blockThank = document.querySelector(".thank");
+const h1BlockThank = document.querySelector(".thank h1");
 regSubmit.addEventListener("click", async (e) => {
   e.preventDefault();
   const value = document.querySelectorAll(".regForm");
@@ -485,12 +487,9 @@ regSubmit.addEventListener("click", async (e) => {
   })
     .then((response) => response.json())
     .then((data) => {
-      // history.pushState(data, "", "code.html");
-      history.pushState(data, "", "index.html");
       if (data.status != 403) {
-        setTimeout(() => {
-          window.location.href = "code.html";
-        }, 6000);
+        history.pushState(data, "", "index.html");
+        window.location.href = "code.html";
       }
     })
     .catch((error) => console.log(error));
@@ -498,6 +497,7 @@ regSubmit.addEventListener("click", async (e) => {
 avtoRegSubmit.addEventListener("click", async (e) => {
   e.preventDefault();
   const value = document.querySelectorAll(".avtoRegForm");
+  const h3 = document.querySelector(".avtoreg h3");
   let obj = {};
   for (let i = 0; i < value.length; i++) {
     obj[value[i].name] = value[i].value;
@@ -510,7 +510,22 @@ avtoRegSubmit.addEventListener("click", async (e) => {
     body: JSON.stringify(obj),
   })
     .then((response) => response.json())
-    .then((data) => {})
+    .then((data) => {
+      if (data.status != 403) {
+        nameAfterReg.style.display = "block";
+        loginAfterReg.style.display = "block";
+        nameAfterReg.innerHTML = "Добро пожаловать " + data[0].name;
+        loginAfterReg.innerHTML = "Аккаунт " + data[0].login;
+        exit.style.display = "block";
+        wrapReg.style.display = "none";
+        wrapAvtoReg.style.display = "none";
+        wrapRegistration.style.display = "none";
+        avtoreg.style.top = -200 + "%";
+      } else {
+        h3.style.display = "block";
+        h3.innerHTML = data.message;
+      }
+    })
     .catch((error) => console.log(error));
 });
 sendMyEmail.addEventListener("click", async (e) => {
@@ -527,15 +542,42 @@ sendMyEmail.addEventListener("click", async (e) => {
     body: JSON.stringify(obj),
   })
     .then((response) => response.json())
-    .then((data) => {})
+    .then((data) => {
+      value.value = "";
+      h1BlockThank.innerHTML = data.message;
+      blockThank.style.display = "block";
+      blockThank.style.right = 0;
+      setTimeout(() => {
+        blockThank.style.right = -800 + "px";
+        blockThank.style.display = "none";
+      }, 5000);
+    })
     .catch((error) => console.log(error));
 });
+
 let dataFromReg = window.history.state;
-nameAfterReg.style.display = "block";
-nameAfterReg.innerHTML = "Добро пожаловать " + dataFromReg[0].name;
-loginAfterReg.innerHTML = "Аккаунт " + dataFromReg[0].login;
-exit.style.display = "block";
-wrapReg.style.display = "none";
-wrapAvtoReg.style.display = "none";
-dataFromReg = [];
+if (dataFromReg.length != 0) {
+  nameAfterReg.style.display = "block";
+  nameAfterReg.innerHTML = "Добро пожаловать " + dataFromReg[0].name;
+  loginAfterReg.innerHTML = "Аккаунт " + dataFromReg[0].login;
+  exit.style.display = "block";
+  wrapReg.style.display = "none";
+  wrapAvtoReg.style.display = "none";
+} else {
+  wrapReg.style.display = "block";
+  wrapAvtoReg.style.display = "block";
+  nameAfterReg.style.display = "none";
+  loginAfterReg.style.display = "none";
+  exit.style.display = "none";
+}
+
+exit.addEventListener("click", async (e) => {
+  e.preventDefault();
+  window.history.pushState([], "", "");
+  wrapReg.style.display = "block";
+  wrapAvtoReg.style.display = "block";
+  nameAfterReg.style.display = "none";
+  loginAfterReg.style.display = "none";
+  exit.style.display = "none";
+});
 console.log(dataFromReg);
